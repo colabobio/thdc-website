@@ -17,11 +17,45 @@ import {
   Activity,
   BarChart,
   Lock,
-  ChevronDown
+  ChevronDown,
+  User
 } from 'lucide-react';
 
 // --- Constants ---
 const PAPER_URL = "https://doi.org/10.1093/jtm/taad089";
+
+const TEAM_MEMBERS = [
+  {
+    name: "Andrea Farnham",
+    role: "Co-Founder",
+    institution: "University of Zürich",
+    bio: "Focuses on epidemiology and the impact of travel on public health."
+  },
+  {
+    name: "Andrés Colubri",
+    role: "Co-Founder",
+    institution: "UMass Chan Medical School / Broad Institute",
+    bio: "Lead researcher focused on computational epidemiology and digital health tools for surveillance."
+  }, 
+  {
+    name: "José Muñoz",
+    role: "Clinician & Researcher",
+    institution: "Hospital Clínic de Barcelona / ISGlobal",
+    bio: "Leading expert in tropical medicine and international health."
+  },
+  {
+    name: "Regina C. LaRocque",
+    role: "Infectious Disease Specialist",
+    institution: "Massachusetts General Hospital",
+    bio: "Focuses on travel medicine, infectious diseases, and clinical care."
+  },
+  {
+    name: "Patricia Schlagenhauf",
+    role: "Professor & Director",
+    institution: "University of Zürich / WHO Collaborating Centre",
+    bio: "Renowned expert in travel medicine, malaria prevention, and global health guidelines."
+  }
+];
 
 // --- Firebase Configuration ---
 const firebaseConfig = {
@@ -41,7 +75,7 @@ const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
 
 // --- Components ---
 
-const Navigation = ({ scrollToSection }) => {
+const Navigation = ({ currentView, setCurrentView, scrollToSection }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -53,6 +87,17 @@ const Navigation = ({ scrollToSection }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleNavClick = (sectionId) => {
+    setIsOpen(false);
+    if (currentView !== 'landing') {
+      setCurrentView('landing');
+      // Small timeout to allow the Landing page to render before scrolling
+      setTimeout(() => scrollToSection(sectionId), 100);
+    } else {
+      scrollToSection(sectionId);
+    }
+  };
+
   const navLinks = [
     { name: 'Mission', id: 'mission' },
     { name: 'Components', id: 'components' },
@@ -63,7 +108,10 @@ const Navigation = ({ scrollToSection }) => {
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'}`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <div className="flex items-center gap-2 cursor-pointer" onClick={() => scrollToSection('hero')}>
+        <div 
+          className="flex items-center gap-2 cursor-pointer" 
+          onClick={() => handleNavClick('hero')}
+        >
           <div className="bg-teal-600 text-white p-1.5 rounded-lg">
             <Globe size={24} />
           </div>
@@ -77,14 +125,25 @@ const Navigation = ({ scrollToSection }) => {
           {navLinks.map((link) => (
             <button
               key={link.name}
-              onClick={() => scrollToSection(link.id)}
+              onClick={() => handleNavClick(link.id)}
               className="text-slate-600 hover:text-teal-600 font-medium transition-colors"
             >
               {link.name}
             </button>
           ))}
+          
           <button
-            onClick={() => scrollToSection('join')}
+            onClick={() => {
+              setCurrentView('team');
+              window.scrollTo(0, 0);
+            }}
+            className={`font-medium transition-colors ${currentView === 'team' ? 'text-teal-600 font-bold' : 'text-slate-600 hover:text-teal-600'}`}
+          >
+            Team
+          </button>
+
+          <button
+            onClick={() => handleNavClick('join')}
             className="bg-teal-600 hover:bg-teal-700 text-white px-5 py-2 rounded-full font-medium transition-colors shadow-sm"
           >
             Join Initiative
@@ -103,10 +162,7 @@ const Navigation = ({ scrollToSection }) => {
           {navLinks.map((link) => (
             <button
               key={link.name}
-              onClick={() => {
-                scrollToSection(link.id);
-                setIsOpen(false);
-              }}
+              onClick={() => handleNavClick(link.id)}
               className="text-left text-slate-600 font-medium py-2 border-b border-slate-50"
             >
               {link.name}
@@ -114,9 +170,16 @@ const Navigation = ({ scrollToSection }) => {
           ))}
           <button
             onClick={() => {
-              scrollToSection('join');
+              setCurrentView('team');
               setIsOpen(false);
+              window.scrollTo(0, 0);
             }}
+            className="text-left text-slate-600 font-medium py-2 border-b border-slate-50"
+          >
+            Team
+          </button>
+          <button
+            onClick={() => handleNavClick('join')}
             className="bg-teal-600 text-white px-5 py-3 rounded-lg font-medium text-center mt-2"
           >
             Join Initiative
@@ -124,6 +187,54 @@ const Navigation = ({ scrollToSection }) => {
         </div>
       )}
     </nav>
+  );
+};
+
+const Team = () => {
+  return (
+    <section className="pt-32 pb-20 bg-slate-50 min-h-screen animate-fadeIn">
+      <div className="container mx-auto px-6">
+        <div className="max-w-3xl mx-auto text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-100 text-teal-700 text-sm font-medium mb-6">
+            <Users size={16} />
+            Our People
+          </div>
+          <h2 className="text-4xl font-bold text-slate-900 mb-6">Meet the Team</h2>
+          <p className="text-lg text-slate-600 leading-relaxed">
+            The Travel Health Data Commons is led by a diverse group of clinicians, researchers, and technologists committed to improving global health surveillance through shared standards.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {TEAM_MEMBERS.map((member, index) => (
+            <div key={index} className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-md transition-all">
+              <div className="w-24 h-24 bg-slate-100 rounded-full mx-auto mb-6 flex items-center justify-center border-2 border-white shadow-sm overflow-hidden">
+                {/* PLACEHOLDER LOGIC:
+                  In a real app, you would use: <img src={member.imageUrl} alt={member.name} className="w-full h-full object-cover" />
+                  For now, we use a nice generic icon.
+                */}
+                <User size={40} className="text-slate-400" />
+              </div>
+              <div className="text-center">
+                <h3 className="text-xl font-bold text-slate-900 mb-1">{member.name}</h3>
+                <p className="text-sm font-semibold text-teal-600 mb-2">{member.role}</p>
+                <p className="text-xs font-medium text-slate-500 uppercase tracking-wide mb-4">{member.institution}</p>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  {member.bio}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-20 text-center">
+          <p className="text-slate-600 mb-6">Interested in contributing to the commons?</p>
+          <a href="mailto:contact@thdc.org" className="text-teal-600 font-bold hover:underline">
+            Get in touch with us
+          </a>
+        </div>
+      </div>
+    </section>
   );
 };
 
@@ -545,12 +656,18 @@ const Footer = () => (
 
 const App = () => {
   const [user, setUser] = useState(null);
+  const [currentView, setCurrentView] = useState('landing'); // 'landing' | 'team'
 
   useEffect(() => {
-    // Auth Pattern
     const initAuth = async () => {
+      // Prioritize custom token if available (mostly for preview env)
       if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-        await signInWithCustomToken(auth, __initial_auth_token);
+        try {
+          await signInWithCustomToken(auth, __initial_auth_token);
+        } catch (e) {
+          console.error("Custom token auth failed", e);
+          await signInAnonymously(auth);
+        }
       } else {
         await signInAnonymously(auth);
       }
@@ -572,13 +689,21 @@ const App = () => {
 
   return (
     <div className="font-sans text-slate-900 antialiased min-h-screen flex flex-col">
-      <Navigation scrollToSection={scrollToSection} />
-      <Hero scrollToSection={scrollToSection} />
-      <Mission />
-      <Components />
-      <Benefits />
-      <Roadmap />
-      <JoinForm user={user} />
+      <Navigation currentView={currentView} setCurrentView={setCurrentView} scrollToSection={scrollToSection} />
+      
+      {currentView === 'landing' ? (
+        <>
+          <Hero scrollToSection={scrollToSection} />
+          <Mission />
+          <Components />
+          <Benefits />
+          <Roadmap />
+          <JoinForm user={user} />
+        </>
+      ) : (
+        <Team />
+      )}
+      
       <Footer />
     </div>
   );
