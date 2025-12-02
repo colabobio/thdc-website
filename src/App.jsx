@@ -16,8 +16,12 @@ import {
   X,
   Activity,
   BarChart,
-  Lock
+  Lock,
+  ChevronDown
 } from 'lucide-react';
+
+// --- Constants ---
+const PAPER_URL = "https://doi.org/10.1093/jtm/taad089";
 
 // --- Firebase Configuration ---
 const firebaseConfig = {
@@ -145,12 +149,14 @@ const Hero = ({ scrollToSection }) => (
           We propose a <strong>Travel Health Data Commons (THDC)</strong>: a set of shared assets—definitions, questionnaires, and software—to lower costs, improve surveillance, and spur innovation.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button 
-            onClick={() => scrollToSection('mission')}
-            className="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-white border border-slate-300 text-slate-700 font-semibold hover:bg-slate-50 transition-colors shadow-sm"
+          <a 
+            href={PAPER_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-white border border-slate-300 text-slate-700 font-semibold hover:bg-slate-50 transition-colors shadow-sm flex items-center justify-center"
           >
-            Read the Proposal
-          </button>
+            Read the Perspective Paper
+          </a>          
           <button 
             onClick={() => scrollToSection('join')}
             className="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-teal-600 text-white font-semibold hover:bg-teal-700 transition-colors shadow-md flex items-center justify-center gap-2"
@@ -158,6 +164,12 @@ const Hero = ({ scrollToSection }) => (
             Join the Community <ArrowRight size={18} />
           </button>
         </div>
+
+        {/* Scroll Indicator */}
+        <div className="mt-16 animate-bounce cursor-pointer text-slate-400 hover:text-teal-600 transition-colors inline-block" onClick={() => scrollToSection('mission')}>
+          <ChevronDown size={32} className="mx-auto" />
+        </div>
+
       </div>
     </div>
   </section>

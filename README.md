@@ -1,6 +1,6 @@
 # Travel Health Data Commons website
 
-This is [React](https://react.dev/) + [Vite](https://vite.dev/) website about the Travel Health Data Commons (THDC), including a registratin form for people interested in the initiative.
+This is [React](https://react.dev/) + [Vite](https://vite.dev/) website about the Travel Health Data Commons (THDC), including a registration form for people interested in the initiative.
 
 ## Run development server
 
