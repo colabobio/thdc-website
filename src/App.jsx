@@ -22,7 +22,7 @@ import {
 } from 'lucide-react';
 
 // --- Constants ---
-const PAPER_URL = "https://doi.org/10.1093/jtm/taad089";
+const PAPER_URL = "https://doi.org/10.5281/zenodo.17969782";
 
 const TEAM_MEMBERS = [
   {
