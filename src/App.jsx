@@ -4,11 +4,10 @@ import { getAuth, signInAnonymously, onAuthStateChanged } from 'firebase/auth';
 import { getFirestore, collection, addDoc, serverTimestamp, onSnapshot, query, orderBy } from 'firebase/firestore';
 import { 
   Globe, 
-  Database, 
   FileText, 
   Cpu, 
   Share2, 
-  ShieldCheck, 
+  // ShieldCheck, 
   Users, 
   CheckCircle, 
   ArrowRight, 
@@ -20,7 +19,8 @@ import {
   Puzzle,
   BadgeQuestionMark,
   FolderCode,
-  BookDashed
+  BookDashed,
+  ExternalLink
 } from 'lucide-react';
 
 // --- Constants ---
@@ -31,31 +31,36 @@ const TEAM_MEMBERS = [
     name: "Andrés Colubri",
     role: "Founding member",
     institution: "UMass Chan Medical School / Broad Institute",
-    bio: "Lead researcher focused on computational epidemiology and digital health tools for surveillance."
+    bio: "Scientist focused on computational epidemiology and digital tools for infectious disease research.",
+    link: "https://co-labo.org/"
   },
   {
     name: "Andrea Farnham",
     role: "Founding member",
     institution: "University of Zürich",
-    bio: "Focuses on epidemiology and the impact of travel on public health."
+    bio: "Digital epidemiologist working at the intersection of mobility, climate, and health.",
+    link: "https://andrea-farnham.gitlab.io/"
   },
   {
     name: "Regina C. LaRocque",
     role: "Founding member",
     institution: "Massachusetts General Hospital",
-    bio: "Focuses on travel medicine, infectious diseases, and clinical care."
+    bio: "Infectious disease physician-researcher with expertise on enteric diseases and travel medicine.",
+    link: "https://www.massgeneral.org/medicine/infectious-diseases/research-and-initiatives/harris-and-larocque-laboratory" 
   },
   {
     name: "José Muñoz",
     role: "Founding member",
     institution: "Hospital Clínic de Barcelona / Universitat de Barcelona / ISGlobal",
-    bio: "Leading expert in tropical medicine and international health."
+    bio: "Medical doctor specialized on clinical and epidemiological research on imported tropical diseases.",
+    link: "https://www.isglobal.org/en/our-team/-/profiles/2500"
   },
   {
     name: "Patricia Schlagenhauf",
     role: "Founding member",
     institution: "University of Zürich / WHO Collaborating Centre for Travellers' Health",
-    bio: "Renowned expert in travel medicine, malaria prevention, and global health guidelines."
+    bio: "Head of the WHO Collaborating Centre for Travellers' Health, specializing in malaria, vaccines, and travel epidemiology.",
+    link: "https://www.ebpi.uzh.ch/en/research/public_global_health_department/group_epidemiology_of_travel_related_and_local_infections/team/schlagenhauf.html"
   }
 ];
 
@@ -203,7 +208,7 @@ const Team = () => {
           </div>
           <h2 className="text-4xl font-bold text-slate-900 mb-6">Meet the Team</h2>
           <p className="text-lg text-slate-600 leading-relaxed">
-            The Travel Health Data Commons is led by a diverse group of clinicians, researchers, and technologists committed to improving global health surveillance through shared standards.
+            The Travel Health Data Commons is led by a multidisciplinary group of clinicians, researchers, and technologists committed to improving travel health outcomes through shared standards.
           </p>
         </div>
 
@@ -218,7 +223,20 @@ const Team = () => {
                 <User size={40} className="text-slate-400" />
               </div>
               <div className="text-center">
-                <h3 className="text-xl font-bold text-slate-900 mb-1">{member.name}</h3>
+                <div className="flex items-center justify-center gap-2 mb-1">
+                  <h3 className="text-xl font-bold text-slate-900">{member.name}</h3>
+                  {member.link && (
+                    <a 
+                      href={member.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-slate-400 hover:text-teal-600 transition-colors"
+                      title="Visit Profile"
+                    >
+                      <ExternalLink size={16} />
+                    </a>
+                  )}
+                </div>
                 <p className="text-sm font-semibold text-teal-600 mb-2">{member.role}</p>
                 <p className="text-xs font-medium text-slate-500 uppercase tracking-wide mb-4">{member.institution}</p>
                 <p className="text-slate-600 text-sm leading-relaxed">
@@ -231,7 +249,7 @@ const Team = () => {
 
         <div className="mt-20 text-center">
           <p className="text-slate-600 mb-6">Interested in contributing to the commons?</p>
-          <a href="mailto:contact@thdc.org" className="text-teal-600 font-bold hover:underline">
+          <a href="mailto:contact@travelhealthdatacommons.org" className="text-teal-600 font-bold hover:underline">
             Get in touch with us
           </a>
         </div>
