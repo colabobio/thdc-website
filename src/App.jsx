@@ -18,41 +18,43 @@ import {
   BarChart,
   Lock,
   ChevronDown,
-  User
+  User,
+  Puzzle,
+  BadgeQuestionMark
 } from 'lucide-react';
 
 // --- Constants ---
-const PAPER_URL = "https://doi.org/10.5281/zenodo.17969782";
+const PAPER_URL = "https://doi.org/10.5281/zenodo.17969781";
 
 const TEAM_MEMBERS = [
   {
+    name: "Andrés Colubri",
+    role: "Founding member",
+    institution: "UMass Chan Medical School / Broad Institute",
+    bio: "Lead researcher focused on computational epidemiology and digital health tools for surveillance."
+  },
+  {
     name: "Andrea Farnham",
-    role: "Co-Founder",
+    role: "Founding member",
     institution: "University of Zürich",
     bio: "Focuses on epidemiology and the impact of travel on public health."
   },
   {
-    name: "Andrés Colubri",
-    role: "Co-Founder",
-    institution: "UMass Chan Medical School / Broad Institute",
-    bio: "Lead researcher focused on computational epidemiology and digital health tools for surveillance."
-  }, 
-  {
-    name: "José Muñoz",
-    role: "Clinician & Researcher",
-    institution: "Hospital Clínic de Barcelona / ISGlobal",
-    bio: "Leading expert in tropical medicine and international health."
-  },
-  {
     name: "Regina C. LaRocque",
-    role: "Infectious Disease Specialist",
+    role: "Founding member",
     institution: "Massachusetts General Hospital",
     bio: "Focuses on travel medicine, infectious diseases, and clinical care."
   },
   {
+    name: "José Muñoz",
+    role: "Founding member",
+    institution: "Hospital Clínic de Barcelona / Universitat de Barcelona / ISGlobal",
+    bio: "Leading expert in tropical medicine and international health."
+  },
+  {
     name: "Patricia Schlagenhauf",
-    role: "Professor & Director",
-    institution: "University of Zürich / WHO Collaborating Centre",
+    role: "Founding member",
+    institution: "University of Zürich / WHO Collaborating Centre for Travellers' Health",
     bio: "Renowned expert in travel medicine, malaria prevention, and global health guidelines."
   }
 ];
@@ -146,7 +148,7 @@ const Navigation = ({ currentView, setCurrentView, scrollToSection }) => {
             onClick={() => handleNavClick('join')}
             className="bg-teal-600 hover:bg-teal-700 text-white px-5 py-2 rounded-full font-medium transition-colors shadow-sm"
           >
-            Join Initiative
+            Join the Initiative
           </button>
         </div>
 
@@ -257,7 +259,7 @@ const Hero = ({ scrollToSection }) => (
           Advancing Travel Medicine Through <span className="text-teal-600">Shared Digital Standards</span>
         </h1>
         <p className="text-lg md:text-xl text-slate-600 mb-10 leading-relaxed max-w-2xl mx-auto">
-          We propose a <strong>Travel Health Data Commons (THDC)</strong>: a set of shared assets—definitions, questionnaires, and software—to lower costs, improve surveillance, and spur innovation.
+          We propose a <strong>Travel Health Data Commons (THDC)</strong>: a set of shared digital resources to catalyze the development of interoperable travel health tools.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a 
@@ -266,13 +268,13 @@ const Hero = ({ scrollToSection }) => (
             rel="noopener noreferrer"
             className="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-white border border-slate-300 text-slate-700 font-semibold hover:bg-slate-50 transition-colors shadow-sm flex items-center justify-center"
           >
-            Read the Perspective Paper
+            Read the Perspective Pre-print
           </a>          
           <button 
             onClick={() => scrollToSection('join')}
             className="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-teal-600 text-white font-semibold hover:bg-teal-700 transition-colors shadow-md flex items-center justify-center gap-2"
           >
-            Join the Community <ArrowRight size={18} />
+            Join the Initiative <ArrowRight size={18} />
           </button>
         </div>
 
@@ -291,12 +293,12 @@ const Mission = () => (
     <div className="container mx-auto px-6">
       <div className="flex flex-col md:flex-row gap-12 items-center">
         <div className="md:w-1/2">
-          <h2 className="text-3xl font-bold text-slate-900 mb-6">The Problem: Rapid Innovation, Fragmented Data</h2>
+          <h2 className="text-3xl font-bold text-slate-900 mb-6">The Problem: Rapid Innovation without Shared Standards</h2>
           <p className="text-slate-600 mb-4 text-lg leading-relaxed">
             How many international travellers get travellers’ diarrhoea (TD)? Studies range from 30% to 70%. The discrepancy isn't just biological; it's because we all use different definitions and recall windows.
           </p>
           <p className="text-slate-600 mb-6 text-lg leading-relaxed">
-            In travel medicine, the absence of common questionnaires and data formats makes signals noisier, research slower, and surveillance weaker.
+            In travel medicine, the absence of common questionnaires and data formats makes signals noisier, comparisons harder, research slower, and surveillance weaker.
           </p>
           <div className="bg-slate-50 p-6 rounded-xl border-l-4 border-teal-500">
             <h3 className="font-bold text-slate-800 mb-2">Our Position</h3>
@@ -305,26 +307,34 @@ const Mission = () => (
             </p>
           </div>
         </div>
-        <div className="md:w-1/2 grid grid-cols-2 gap-4">
+        <div className="md:w-1/2 grid grid-cols-1 gap-4">
           <div className="bg-slate-50 p-6 rounded-2xl">
-            <Activity className="text-rose-500 mb-4" size={32} />
-            <h4 className="font-bold text-slate-900">Fragmented</h4>
-            <p className="text-sm text-slate-500">Hundreds of apps, zero interoperability.</p>
+            <div className="flex items-center gap-2 mb-4">
+              <Puzzle className="text-rose-500" size={32} />
+              <h4 className="font-bold text-slate-900">Fragmentation</h4>
+            </div>
+            <p className="text-sm text-slate-500">Hundreds of apps, limited interoperability.</p>
           </div>
-          <div className="bg-slate-50 p-6 rounded-2xl mt-8">
-            <BarChart className="text-blue-500 mb-4" size={32} />
-            <h4 className="font-bold text-slate-900">Inconsistent</h4>
+          <div className="bg-slate-50 p-6 rounded-2xl">
+            <div className="flex items-center gap-2 mb-4">
+              <BadgeQuestionMark className="text-blue-500" size={32} />
+              <h4 className="font-bold text-slate-900">Inconsistency</h4>
+            </div>
             <p className="text-sm text-slate-500">Varying definitions lead to shaky evidence.</p>
           </div>
-          <div className="bg-slate-50 p-6 rounded-2xl -mt-8">
-            <Lock className="text-amber-500 mb-4" size={32} />
-            <h4 className="font-bold text-slate-900">Siloed</h4>
+          <div className="bg-slate-50 p-6 rounded-2xl">
+            <div className="flex items-center gap-2 mb-4">
+              <Lock className="text-amber-500" size={32} />
+              <h4 className="font-bold text-slate-900">Data siloes</h4>              
+            </div>            
             <p className="text-sm text-slate-500">Data locked in proprietary formats.</p>
           </div>
           <div className="bg-teal-50 p-6 rounded-2xl border border-teal-100">
-            <CheckCircle className="text-teal-600 mb-4" size={32} />
-            <h4 className="font-bold text-teal-900">The Solution</h4>
-            <p className="text-sm text-teal-700">A Commons of shared assets.</p>
+            <div className="flex items-center gap-2 mb-4">
+              <CheckCircle className="text-teal-600" size={32} />
+              <h4 className="font-bold text-teal-900">The Solution</h4>
+            </div>            
+            <p className="text-sm text-teal-700">A Commons of shared resources.</p>
           </div>
         </div>
       </div>
