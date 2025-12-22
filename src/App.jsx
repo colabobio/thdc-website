@@ -256,10 +256,10 @@ const Hero = ({ scrollToSection }) => (
           Proposal for a Data Commons
         </div>
         <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 leading-tight mb-6 tracking-tight">
-          Advancing Travel Medicine Through <span className="text-teal-600">Shared Digital Standards</span>
+          Advancing Travel Medicine Through <span className="text-teal-600">Shared Digital Standards & Resources</span>
         </h1>
         <p className="text-lg md:text-xl text-slate-600 mb-10 leading-relaxed max-w-2xl mx-auto">
-          We propose a <strong>Travel Health Data Commons (THDC)</strong>: a set of shared digital resources to catalyze the development of interoperable travel health tools.
+          We propose a <strong>Travel Health Data Commons (THDC)</strong>: an openly-governed initiative to catalyze the development of interoperable travel health tools.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a 
