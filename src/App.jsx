@@ -33,7 +33,7 @@ const TEAM_MEMBERS = [
     institution: "UMass Chan Medical School / Broad Institute",
     bio: "Scientist focused on computational epidemiology and digital tools for infectious disease research.",
     link: "https://co-labo.org/",
-    imageUrl: "andres.png"
+    imageUrl: "andres.webp"
   },
   {
     name: "Andrea Farnham",
@@ -41,7 +41,7 @@ const TEAM_MEMBERS = [
     institution: "University of Zürich",
     bio: "Digital epidemiologist working at the intersection of mobility, climate, and health.",
     link: "https://andrea-farnham.gitlab.io/",
-    imageUrl: "andrea.jpg"
+    imageUrl: "andrea.webp"
   },
   {
     name: "Regina C. LaRocque",
@@ -49,7 +49,7 @@ const TEAM_MEMBERS = [
     institution: "Massachusetts General Hospital",
     bio: "Infectious disease physician-researcher with expertise on enteric diseases and travel medicine.",
     link: "https://www.massgeneral.org/medicine/infectious-diseases/research-and-initiatives/harris-and-larocque-laboratory",
-    imageUrl: "regina.png"
+    imageUrl: "regina.webp"
   },
   {
     name: "José Muñoz",
@@ -57,7 +57,7 @@ const TEAM_MEMBERS = [
     institution: "Hospital Clínic de Barcelona / Universitat de Barcelona / ISGlobal",
     bio: "Medical doctor specialized on clinical and epidemiological research on imported tropical diseases.",
     link: "https://www.isglobal.org/en/our-team/-/profiles/2500",
-    imageUrl: "jose.jpg"
+    imageUrl: "jose.webp"
   },
   {
     name: "Patricia Schlagenhauf",
