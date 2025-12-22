@@ -124,7 +124,7 @@ const Navigation = ({ currentView, setCurrentView, scrollToSection }) => {
           className="flex items-center gap-2 cursor-pointer" 
           onClick={() => handleNavClick('hero')}
         >
-          <div className="bg-teal-600 text-white p-1.5 rounded-lg">
+          <div className="bg-emerald-600 text-white p-1.5 rounded-lg">
             <Globe size={24} />
           </div>
           <span className={`text-xl font-bold tracking-tight ${scrolled ? 'text-slate-800' : 'text-slate-800'}`}>
@@ -138,7 +138,7 @@ const Navigation = ({ currentView, setCurrentView, scrollToSection }) => {
             <button
               key={link.name}
               onClick={() => handleNavClick(link.id)}
-              className="text-slate-600 hover:text-teal-600 font-medium transition-colors"
+              className="text-slate-600 hover:text-emerald-600 font-medium transition-colors"
             >
               {link.name}
             </button>
@@ -149,14 +149,14 @@ const Navigation = ({ currentView, setCurrentView, scrollToSection }) => {
               setCurrentView('team');
               window.scrollTo(0, 0);
             }}
-            className={`font-medium transition-colors ${currentView === 'team' ? 'text-teal-600 font-bold' : 'text-slate-600 hover:text-teal-600'}`}
+            className={`font-medium transition-colors ${currentView === 'team' ? 'text-emerald-600 font-bold' : 'text-slate-600 hover:text-emerald-600'}`}
           >
             Team
           </button>
 
           <button
             onClick={() => handleNavClick('join')}
-            className="bg-teal-600 hover:bg-teal-700 text-white px-5 py-2 rounded-full font-medium transition-colors shadow-sm"
+            className="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2 rounded-full font-medium transition-colors shadow-sm"
           >
             Join the Initiative
           </button>
@@ -192,7 +192,7 @@ const Navigation = ({ currentView, setCurrentView, scrollToSection }) => {
           </button>
           <button
             onClick={() => handleNavClick('join')}
-            className="bg-teal-600 text-white px-5 py-3 rounded-lg font-medium text-center mt-2"
+            className="bg-emerald-600 text-white px-5 py-3 rounded-lg font-medium text-center mt-2"
           >
             Join Initiative
           </button>
@@ -207,7 +207,7 @@ const Team = () => {
     <section className="pt-32 pb-20 bg-slate-50 min-h-screen animate-fadeIn">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          {/* <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-100 text-teal-700 text-sm font-medium mb-6">
+          {/* <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-700 text-sm font-medium mb-6">
             <Users size={16} />
             Our People
           </div> */}
@@ -221,10 +221,6 @@ const Team = () => {
           {TEAM_MEMBERS.map((member, index) => (
             <div key={index} className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-md transition-all">
               <div className="w-24 h-24 bg-slate-100 rounded-full mx-auto mb-6 flex items-center justify-center border-2 border-white shadow-sm overflow-hidden">
-                {/* PLACEHOLDER LOGIC:
-                  In a real app, you would use: <img src={member.imageUrl} alt={member.name} className="w-full h-full object-cover" />
-                  For now, we use a nice generic icon.
-                */}
                 {/* <User size={40} className="text-slate-400" /> */}
                 <img src={member.imageUrl} alt={member.name} className="w-full h-full object-cover" />
               </div>
@@ -236,14 +232,14 @@ const Team = () => {
                       href={member.link} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-slate-400 hover:text-teal-600 transition-colors"
+                      className="text-slate-400 hover:text-emerald-600 transition-colors"
                       title="Visit Profile"
                     >
                       <ExternalLink size={16} />
                     </a>
                   )}
                 </div>
-                <p className="text-sm font-semibold text-teal-600 mb-2">{member.role}</p>
+                <p className="text-sm font-semibold text-emerald-600 mb-2">{member.role}</p>
                 <p className="text-xs font-medium text-slate-500 uppercase tracking-wide mb-4">{member.institution}</p>
                 <p className="text-slate-600 text-sm leading-relaxed">
                   {member.bio}
@@ -255,7 +251,7 @@ const Team = () => {
 
         <div className="mt-20 text-center">
           <p className="text-slate-600 mb-6">Interested in contributing to the commons?</p>
-          <a href="mailto:contact@travelhealthdatacommons.org" className="text-teal-600 font-bold hover:underline">
+          <a href="mailto:contact@travelhealthdatacommons.org" className="text-emerald-600 font-bold hover:underline">
             Get in touch with us
           </a>
         </div>
@@ -267,20 +263,20 @@ const Team = () => {
 const Hero = ({ scrollToSection }) => (
   <section id="hero" className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-slate-50">
     {/* Abstract Background Pattern */}
-    <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-teal-100 rounded-full blur-3xl opacity-50"></div>
+    <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-emerald-100 rounded-full blur-3xl opacity-50"></div>
     <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-blue-100 rounded-full blur-3xl opacity-50"></div>
 
     <div className="container mx-auto px-6 relative z-10">
       <div className="max-w-4xl mx-auto text-center">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-100 text-teal-700 text-sm font-medium mb-6">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-700 text-sm font-medium mb-6">
           <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
           </span>
           Proposal for a Data Commons
         </div>
         <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 leading-tight mb-6 tracking-tight">
-          Advancing Travel Medicine Through <span className="text-teal-600">Shared Digital Standards & Resources</span>
+          Advancing Travel Medicine Through <span className="text-emerald-600">Shared Digital Standards & Resources</span>
         </h1>
         <p className="text-lg md:text-xl text-slate-600 mb-10 leading-relaxed max-w-2xl mx-auto">
           We propose a <strong>Travel Health Data Commons (THDC)</strong>: an openly-governed initiative to catalyze the development of interoperable travel health tools.
@@ -296,14 +292,14 @@ const Hero = ({ scrollToSection }) => (
           </a>          
           <button 
             onClick={() => scrollToSection('join')}
-            className="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-teal-600 text-white font-semibold hover:bg-teal-700 transition-colors shadow-md flex items-center justify-center gap-2"
+            className="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-emerald-600 text-white font-semibold hover:bg-emerald-700 transition-colors shadow-md flex items-center justify-center gap-2"
           >
             Join the Initiative <ArrowRight size={18} />
           </button>
         </div>
 
         {/* Scroll Indicator */}
-        <div className="mt-16 animate-bounce cursor-pointer text-slate-400 hover:text-teal-600 transition-colors inline-block" onClick={() => scrollToSection('mission')}>
+        <div className="mt-16 animate-bounce cursor-pointer text-slate-400 hover:text-emerald-600 transition-colors inline-block" onClick={() => scrollToSection('mission')}>
           <ChevronDown size={32} className="mx-auto" />
         </div>
 
@@ -324,7 +320,7 @@ const Mission = () => (
           <p className="text-slate-600 mb-6 text-lg leading-relaxed">
             In travel medicine, the absence of common definitions and data formats makes signals noisier, comparisons harder, research slower, and surveillance weaker.
           </p>
-          <div className="bg-slate-50 p-6 rounded-xl border-l-4 border-teal-500">
+          <div className="bg-slate-50 p-6 rounded-xl border-l-4 border-emerald-500">
             <h3 className="font-bold text-slate-800 mb-2">Our Position</h3>
             <p className="text-slate-700 italic">
               "Not one platform, but shared standards and resources. The leverage lies between systems: aligned case definitions, core survey elements, and interoperable formats."
@@ -353,12 +349,12 @@ const Mission = () => (
             </div>            
             <p className="text-sm text-slate-500">Datasets siloed by different formats and protocols.</p>
           </div>
-          <div className="bg-teal-50 p-6 rounded-2xl border border-teal-100">
+          <div className="bg-emerald-50 p-6 rounded-2xl border border-emerald-100">
             <div className="flex items-center gap-2 mb-4">
-              <CheckCircle className="text-teal-600" size={32} />
-              <h4 className="font-bold text-teal-900">The Solution</h4>
+              <CheckCircle className="text-emerald-600" size={32} />
+              <h4 className="font-bold text-emerald-900">The Solution</h4>
             </div>            
-            <p className="text-sm text-teal-700">A Commons of shared standards and resources.</p>
+            <p className="text-sm text-emerald-700">A Commons of shared standards and resources.</p>
           </div>
         </div>
       </div>
@@ -369,7 +365,7 @@ const Mission = () => (
 const Components = () => {
   const components = [
     {
-      icon: <FileText size={24} className="text-teal-600" />,
+      icon: <FileText size={24} className="text-emerald-600" />,
       title: "Consensus Definitions",
       desc: "Standard definitions for syndromes (e.g., TD, febrile illness) using established severity scales like Likert."
     },
@@ -435,30 +431,30 @@ const Components = () => {
 const Benefits = () => (
   <section id="impact" className="py-20 bg-white">
     <div className="container mx-auto px-6">
-      <div className="bg-slate-900 rounded-3xl p-10 md:p-16 text-white overflow-hidden relative">
-        <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-teal-500 rounded-full blur-3xl opacity-20"></div>
+      <div className="bg-slate-800 rounded-3xl p-10 md:p-16 text-white overflow-hidden relative">
+        <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-emerald-500 rounded-full blur-3xl opacity-20"></div>
         
         <h2 className="text-3xl font-bold mb-12 relative z-10">What Could Shared Protocols Deliver?</h2>
         
         <div className="grid md:grid-cols-3 gap-10 relative z-10">
           <div>
-            <div className="text-teal-400 font-bold text-xl mb-3">Consistent Data</div>
+            <div className="text-emerald-400 font-bold text-xl mb-3">Consistent Data</div>
             <p className="text-slate-300">Comparable estimates of disease incidence regardless of the collection method or platform used.</p>
           </div>
           <div>
-            <div className="text-teal-400 font-bold text-xl mb-3">Efficiency</div>
+            <div className="text-emerald-400 font-bold text-xl mb-3">Efficiency</div>
             <p className="text-slate-300">Reduced cost and time by reusing core components rather than rebuilding them from scratch each time.</p>
           </div>
           <div>
-            <div className="text-teal-400 font-bold text-xl mb-3">Global Collaboration</div>
+            <div className="text-emerald-400 font-bold text-xl mb-3">Global Collaboration</div>
             <p className="text-slate-300">Rapid comparison of studies across regions and standardized benchmarking for AI models.</p>
           </div>
           <div>
-            <div className="text-teal-400 font-bold text-xl mb-3">Real-Time Surveillance</div>
+            <div className="text-emerald-400 font-bold text-xl mb-3">Real-Time Surveillance</div>
             <p className="text-slate-300">Immediate cross-border tracking during health crises by aggregating data from clinics and apps.</p>
           </div>
           <div>
-            <div className="text-teal-400 font-bold text-xl mb-3">Ethical Standards</div>
+            <div className="text-emerald-400 font-bold text-xl mb-3">Ethical Standards</div>
             <p className="text-slate-300">Privacy and security by design, with equity explicitly measured in participatory surveillance.</p>
           </div>
         </div>
@@ -473,29 +469,29 @@ const Roadmap = () => (
       <h2 className="text-3xl font-bold text-slate-900 mb-10 text-center">A 12-Month Roadmap to Version 1.0</h2>
       <div className="space-y-8">
         <div className="flex gap-6">
-          <div className="flex-shrink-0 w-24 font-bold text-teal-600 text-right pt-1">Months 1-4</div>
-          <div className="border-l-2 border-teal-200 pl-6 pb-2">
+          <div className="flex-shrink-0 w-24 font-bold text-emerald-600 text-right pt-1">Months 1-4</div>
+          <div className="border-l-2 border-emerald-200 pl-6 pb-2">
             <h4 className="font-bold text-slate-800 text-lg">Scoping Review</h4>
             <p className="text-slate-600">Map the landscape of digital/AI tools and lessons from mature governance models.</p>
           </div>
         </div>
         <div className="flex gap-6">
-          <div className="flex-shrink-0 w-24 font-bold text-teal-600 text-right pt-1">Months 3-8</div>
-          <div className="border-l-2 border-teal-200 pl-6 pb-2">
+          <div className="flex-shrink-0 w-24 font-bold text-emerald-600 text-right pt-1">Months 3-8</div>
+          <div className="border-l-2 border-emerald-200 pl-6 pb-2">
             <h4 className="font-bold text-slate-800 text-lg">Expert Panels & Consensus</h4>
             <p className="text-slate-600">Recruit panels and run consensus rounds to define core principles and priorities.</p>
           </div>
         </div>
         <div className="flex gap-6">
-          <div className="flex-shrink-0 w-24 font-bold text-teal-600 text-right pt-1">Months 6-10</div>
-          <div className="border-l-2 border-teal-200 pl-6 pb-2">
+          <div className="flex-shrink-0 w-24 font-bold text-emerald-600 text-right pt-1">Months 6-10</div>
+          <div className="border-l-2 border-emerald-200 pl-6 pb-2">
             <h4 className="font-bold text-slate-800 text-lg">Consortium Establishment</h4>
             <p className="text-slate-600">Formally establish the ISTM Technology Consortium with clear IP and governance.</p>
           </div>
         </div>
         <div className="flex gap-6">
-          <div className="flex-shrink-0 w-24 font-bold text-teal-600 text-right pt-1">Months 11-12</div>
-          <div className="border-l-2 border-teal-200 pl-6 pb-2">
+          <div className="flex-shrink-0 w-24 font-bold text-emerald-600 text-right pt-1">Months 11-12</div>
+          <div className="border-l-2 border-emerald-200 pl-6 pb-2">
             <h4 className="font-bold text-slate-800 text-lg">Strategic Launch</h4>
             <p className="text-slate-600">Present outcomes, strategic roadmap, and initial shared resources.</p>
           </div>
@@ -570,7 +566,7 @@ const JoinForm = ({ user }) => {
               <p className="text-slate-600">Your registration has been received. We will be in touch with updates.</p>
               <button 
                 onClick={() => setStatus('idle')}
-                className="mt-6 text-teal-600 font-medium hover:underline"
+                className="mt-6 text-emerald-600 font-medium hover:underline"
               >
                 Register another person
               </button>
@@ -586,7 +582,7 @@ const JoinForm = ({ user }) => {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition-all"
+                    className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
                     placeholder="Dr. Jane Smith"
                   />
                 </div>
@@ -598,7 +594,7 @@ const JoinForm = ({ user }) => {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition-all"
+                    className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
                     placeholder="jane@example.com"
                   />
                 </div>
@@ -612,7 +608,7 @@ const JoinForm = ({ user }) => {
                   required
                   value={formData.organization}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition-all"
+                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
                   placeholder="University of ..."
                 />
               </div>
@@ -623,7 +619,7 @@ const JoinForm = ({ user }) => {
                   name="role"
                   value={formData.role}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition-all"
+                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
                 >
                   <option>Clinician</option>
                   <option>Researcher</option>
@@ -641,7 +637,7 @@ const JoinForm = ({ user }) => {
                   value={formData.interest}
                   onChange={handleChange}
                   rows="3"
-                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition-all"
+                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
                   placeholder="I'm interested in using THDC's core case definitions in my app..."
                 ></textarea>
               </div>
@@ -650,7 +646,7 @@ const JoinForm = ({ user }) => {
                 type="submit"
                 disabled={status === 'submitting'}
                 className={`w-full py-3 rounded-lg font-bold text-white transition-all shadow-md ${
-                  status === 'submitting' ? 'bg-slate-400 cursor-not-allowed' : 'bg-teal-600 hover:bg-teal-700'
+                  status === 'submitting' ? 'bg-slate-400 cursor-not-allowed' : 'bg-emerald-600 hover:bg-emerald-700'
                 }`}
               >
                 {status === 'submitting' ? 'Registering...' : 'Register for Updates'}
@@ -673,10 +669,10 @@ const JoinForm = ({ user }) => {
 };
 
 const Footer = () => (
-  <footer className="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+  <footer className="bg-slate-800 text-slate-400 py-12 border-t border-slate-800">
     <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
       <div className="flex items-center gap-2">
-        <div className="bg-slate-800 text-teal-500 p-1.5 rounded-lg">
+        <div className="bg-slate-800 text-emerald-500 p-1.5 rounded-lg">
           <Globe size={20} />
         </div>
         <span className="text-lg font-bold text-white">THDC</span>
