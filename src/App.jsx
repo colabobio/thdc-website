@@ -14,13 +14,13 @@ import {
   ArrowRight, 
   Menu, 
   X,
-  Activity,
-  BarChart,
   Lock,
   ChevronDown,
   User,
   Puzzle,
-  BadgeQuestionMark
+  BadgeQuestionMark,
+  FolderCode,
+  BookDashed
 } from 'lucide-react';
 
 // --- Constants ---
@@ -253,7 +253,7 @@ const Hero = ({ scrollToSection }) => (
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
           </span>
-          Proposal for a Shared Infrastructure
+          Proposal for a Data Commons
         </div>
         <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 leading-tight mb-6 tracking-tight">
           Advancing Travel Medicine Through <span className="text-teal-600">Shared Digital Standards</span>
@@ -295,15 +295,15 @@ const Mission = () => (
         <div className="md:w-1/2">
           <h2 className="text-3xl font-bold text-slate-900 mb-6">The Problem: Rapid Innovation without Shared Standards</h2>
           <p className="text-slate-600 mb-4 text-lg leading-relaxed">
-            How many international travellers get travellers’ diarrhoea (TD)? Studies range from 30% to 70%. The discrepancy isn't just biological; it's because we all use different definitions and recall windows.
+            How many international travellers get illnesses such as travellers’ diarrhoea (TD)? Studies range from 30% to 70%. The discrepancy isn't just due to biology or physiology; it's because we all use different definitions and recall windows.
           </p>
           <p className="text-slate-600 mb-6 text-lg leading-relaxed">
-            In travel medicine, the absence of common questionnaires and data formats makes signals noisier, comparisons harder, research slower, and surveillance weaker.
+            In travel medicine, the absence of common definitions and data formats makes signals noisier, comparisons harder, research slower, and surveillance weaker.
           </p>
           <div className="bg-slate-50 p-6 rounded-xl border-l-4 border-teal-500">
             <h3 className="font-bold text-slate-800 mb-2">Our Position</h3>
             <p className="text-slate-700 italic">
-              "Not one platform, but shared standards. The leverage lies between systems: aligned case definitions, core survey elements, and interoperable formats."
+              "Not one platform, but shared standards and resources. The leverage lies between systems: aligned case definitions, core survey elements, and interoperable formats."
             </p>
           </div>
         </div>
@@ -313,28 +313,28 @@ const Mission = () => (
               <Puzzle className="text-rose-500" size={32} />
               <h4 className="font-bold text-slate-900">Fragmentation</h4>
             </div>
-            <p className="text-sm text-slate-500">Hundreds of apps, limited interoperability.</p>
+            <p className="text-sm text-slate-500">Hundreds of health apps but limited interoperability.</p>
           </div>
           <div className="bg-slate-50 p-6 rounded-2xl">
             <div className="flex items-center gap-2 mb-4">
               <BadgeQuestionMark className="text-blue-500" size={32} />
               <h4 className="font-bold text-slate-900">Inconsistency</h4>
             </div>
-            <p className="text-sm text-slate-500">Varying definitions lead to shaky evidence.</p>
+            <p className="text-sm text-slate-500">Varying definitions leading to shaky clinical evidence.</p>
           </div>
           <div className="bg-slate-50 p-6 rounded-2xl">
             <div className="flex items-center gap-2 mb-4">
               <Lock className="text-amber-500" size={32} />
-              <h4 className="font-bold text-slate-900">Data siloes</h4>              
+              <h4 className="font-bold text-slate-900">Incompatibility</h4>
             </div>            
-            <p className="text-sm text-slate-500">Data locked in proprietary formats.</p>
+            <p className="text-sm text-slate-500">Datasets siloed by different formats and protocols.</p>
           </div>
           <div className="bg-teal-50 p-6 rounded-2xl border border-teal-100">
             <div className="flex items-center gap-2 mb-4">
               <CheckCircle className="text-teal-600" size={32} />
               <h4 className="font-bold text-teal-900">The Solution</h4>
             </div>            
-            <p className="text-sm text-teal-700">A Commons of shared resources.</p>
+            <p className="text-sm text-teal-700">A Commons of shared standards and resources.</p>
           </div>
         </div>
       </div>
@@ -350,7 +350,7 @@ const Components = () => {
       desc: "Standard definitions for syndromes (e.g., TD, febrile illness) using established severity scales like Likert."
     },
     {
-      icon: <Database size={24} className="text-blue-600" />,
+      icon: <BookDashed size={24} className="text-blue-600" />,
       title: "Template Questionnaires",
       desc: "Multilingual templates for pre-travel, during-travel, and post-travel phases with comparable core items."
     },
@@ -365,19 +365,19 @@ const Components = () => {
       desc: "HL7 FHIR profiles and standard terminologies (SNOMED CT, ICD-10, LOINC) to promote FAIR practices."
     },
     {
-      icon: <Globe size={24} className="text-indigo-600" />,
+      icon: <FolderCode size={24} className="text-indigo-600" />,
       title: "Reference Software",
       desc: "Modules for consent, offline-first survey delivery, itinerary parsing, and de-identification."
     },
-    {
-      icon: <ShieldCheck size={24} className="text-green-600" />,
-      title: "Evaluation Frameworks",
-      desc: "Guidance for accuracy, usability, equity, and privacy safeguards for AI-mediated tools."
-    },
+    // {
+    //   icon: <ShieldCheck size={24} className="text-green-600" />,
+    //   title: "Evaluation Frameworks",
+    //   desc: "Guidance for accuracy, usability, equity, and privacy safeguards for AI-mediated tools."
+    // },
     {
       icon: <Users size={24} className="text-rose-600" />,
       title: "Open Governance",
-      desc: "Transparent versioning and community input involving clinicians, researchers, and ethicists."
+      desc: "Transparent versioning and community input involving clinicians, researchers, technologists, and health ethics experts."
     }
   ];
 
@@ -387,7 +387,8 @@ const Components = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl font-bold text-slate-900 mb-4">Key Components of the Commons</h2>
           <p className="text-slate-600 text-lg">
-            THDC isn't a single app. It's an openly governed set of building blocks that lowers the cost of building trustworthy tools.
+            THDC isn't a single app or data format. It's a set of building blocks that lowers the cost of 
+            building trustworthy digital tools for travel health and facilitates global collaboration.
           </p>
         </div>
 
@@ -458,7 +459,7 @@ const Roadmap = () => (
           <div className="flex-shrink-0 w-24 font-bold text-teal-600 text-right pt-1">Months 3-8</div>
           <div className="border-l-2 border-teal-200 pl-6 pb-2">
             <h4 className="font-bold text-slate-800 text-lg">Expert Panels & Consensus</h4>
-            <p className="text-slate-600">Recruit panels and run consensus rounds to define core principles, priorities, and evaluation criteria.</p>
+            <p className="text-slate-600">Recruit panels and run consensus rounds to define core principles and priorities.</p>
           </div>
         </div>
         <div className="flex gap-6">
@@ -472,7 +473,7 @@ const Roadmap = () => (
           <div className="flex-shrink-0 w-24 font-bold text-teal-600 text-right pt-1">Months 11-12</div>
           <div className="border-l-2 border-teal-200 pl-6 pb-2">
             <h4 className="font-bold text-slate-800 text-lg">Strategic Launch</h4>
-            <p className="text-slate-600">Present outcomes, strategic roadmap, and initial shared assets.</p>
+            <p className="text-slate-600">Present outcomes, strategic roadmap, and initial shared resources.</p>
           </div>
         </div>
       </div>
@@ -604,7 +605,7 @@ const JoinForm = ({ user }) => {
                   <option>Researcher</option>
                   <option>Public Health Official</option>
                   <option>Vendor / Developer</option>
-                  <option>Traveller Community</option>
+                  <option>Member of Traveller Community</option>
                   <option>Other</option>
                 </select>
               </div>
@@ -617,7 +618,7 @@ const JoinForm = ({ user }) => {
                   onChange={handleChange}
                   rows="3"
                   className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition-all"
-                  placeholder="I'm interested in piloting the MTHDS..."
+                  placeholder="I'm interested in using THDC's core case definitions in my app..."
                 ></textarea>
               </div>
 
