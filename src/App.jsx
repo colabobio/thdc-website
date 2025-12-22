@@ -28,39 +28,44 @@ const PAPER_URL = "https://doi.org/10.5281/zenodo.17969781";
 
 const TEAM_MEMBERS = [
   {
-    name: "Andrés Colubri",
+    name: "Andrés Colubri",    
     role: "Founding member",
     institution: "UMass Chan Medical School / Broad Institute",
     bio: "Scientist focused on computational epidemiology and digital tools for infectious disease research.",
-    link: "https://co-labo.org/"
+    link: "https://co-labo.org/",
+    imageUrl: "andres.png"
   },
   {
     name: "Andrea Farnham",
     role: "Founding member",
     institution: "University of Zürich",
     bio: "Digital epidemiologist working at the intersection of mobility, climate, and health.",
-    link: "https://andrea-farnham.gitlab.io/"
+    link: "https://andrea-farnham.gitlab.io/",
+    imageUrl: "andrea.jpg"
   },
   {
     name: "Regina C. LaRocque",
     role: "Founding member",
     institution: "Massachusetts General Hospital",
     bio: "Infectious disease physician-researcher with expertise on enteric diseases and travel medicine.",
-    link: "https://www.massgeneral.org/medicine/infectious-diseases/research-and-initiatives/harris-and-larocque-laboratory" 
+    link: "https://www.massgeneral.org/medicine/infectious-diseases/research-and-initiatives/harris-and-larocque-laboratory",
+    imageUrl: "regina.png"
   },
   {
     name: "José Muñoz",
     role: "Founding member",
     institution: "Hospital Clínic de Barcelona / Universitat de Barcelona / ISGlobal",
     bio: "Medical doctor specialized on clinical and epidemiological research on imported tropical diseases.",
-    link: "https://www.isglobal.org/en/our-team/-/profiles/2500"
+    link: "https://www.isglobal.org/en/our-team/-/profiles/2500",
+    imageUrl: "jose.jpg"
   },
   {
     name: "Patricia Schlagenhauf",
     role: "Founding member",
     institution: "University of Zürich / WHO Collaborating Centre for Travellers' Health",
     bio: "Head of the WHO Collaborating Centre for Travellers' Health, specializing in malaria, vaccines, and travel epidemiology.",
-    link: "https://www.ebpi.uzh.ch/en/research/public_global_health_department/group_epidemiology_of_travel_related_and_local_infections/team/schlagenhauf.html"
+    link: "https://www.ebpi.uzh.ch/en/research/public_global_health_department/group_epidemiology_of_travel_related_and_local_infections/team/schlagenhauf.html",
+    imageUrl: "patricia.webp"
   }
 ];
 
@@ -202,10 +207,10 @@ const Team = () => {
     <section className="pt-32 pb-20 bg-slate-50 min-h-screen animate-fadeIn">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-100 text-teal-700 text-sm font-medium mb-6">
+          {/* <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-100 text-teal-700 text-sm font-medium mb-6">
             <Users size={16} />
             Our People
-          </div>
+          </div> */}
           <h2 className="text-4xl font-bold text-slate-900 mb-6">Meet the Team</h2>
           <p className="text-lg text-slate-600 leading-relaxed">
             The Travel Health Data Commons is led by a multidisciplinary group of clinicians, researchers, and technologists committed to improving travel health outcomes through shared standards.
@@ -220,7 +225,8 @@ const Team = () => {
                   In a real app, you would use: <img src={member.imageUrl} alt={member.name} className="w-full h-full object-cover" />
                   For now, we use a nice generic icon.
                 */}
-                <User size={40} className="text-slate-400" />
+                {/* <User size={40} className="text-slate-400" /> */}
+                <img src={member.imageUrl} alt={member.name} className="w-full h-full object-cover" />
               </div>
               <div className="text-center">
                 <div className="flex items-center justify-center gap-2 mb-1">
