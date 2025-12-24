@@ -251,7 +251,7 @@ const Team = () => {
 
         <div className="mt-20 text-center">
           <p className="text-slate-600 mb-6">Interested in contributing to the commons?</p>
-          <a href="mailto:contact@travelhealthdatacommons.org" className="text-emerald-600 font-bold hover:underline">
+          <a href="mailto:andrea.farnham@uzh.ch" className="text-emerald-600 font-bold hover:underline">
             Get in touch with us
           </a>
         </div>
